@@ -1,0 +1,26 @@
+const express = require('express');
+require('dotenv').config();
+const path = require('path');
+const systemConfig = require('./config/system');
+
+const app = express();
+const port = process.env.PORT;
+
+const database = require('./config/database');
+database.connect();
+
+app.set('views', `${__dirname}/views`);
+app.set('view engine', 'pug');
+
+app.use(express.static(`${__dirname}/public`));
+
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+
+app.locals.prefixAdmin = systemConfig.prefixAdmin;
+
+const routeAdmin = require('./routes/admin/index.route');
+routeAdmin(app);
+
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+});
