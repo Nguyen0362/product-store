@@ -33,10 +33,7 @@ block main
                   }
                 ]) 
               div(class="relative md:ml-[30px] ml-0 xl:w-auto md:w-[50%] w-[100%] md:order-2 order-1")
-                form(action="") 
-                  input(type="text" class="outline-none bg-[#4099FF] bg-opacity-10 rounded-[5px] py-[10px] pl-[10px] pr-[50px] text-black xl:w-[300px] w-full" placeholder="Tìm kiếm")
-                  span(class="cursor-pointer absolute text-[#4099FF] w-[50px] h-full right-0 top-0 flex justify-center items-center")
-                      i(class="fa-solid fa-magnifying-glass")
+                include ../../partials/form-search.pug
             div(class="xl:w-auto w-full xl:mt-0 mt-[30px]")
               select(name="" class="border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 bg-white px-[12px] py-[10px] xl:w-[250px] md:w-[50%] w-full outline-none float-right" sort-select) 
                 option(value="position-desc") Vi trí giảm dần
@@ -60,19 +57,20 @@ block main
           div(class="md:w-auto w-full text-center")
             | Hiển thị
             select(name="" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] mx-[5px] w-[75px] outline-none" show-select) 
-              option(value="show-10") 10
-              option(value="show-25") 25
-              option(value="show-50") 50
-              option(value="show-100") 100
+              option(value="10") 10
+              option(value="25") 25
+              option(value="50") 50
+              option(value="100") 100
             | sản phẩm
           div(class="md:ml-[40px] ml-0 md:mt-0 mt-[20px] md:w-auto w-full")
-            div(class="flex items-center justify-center")
-              select(name="" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] sm:w-[250px] w-[180px] outline-none" show-select)  
-                option(value="active") Hoạt động
-                option(value="inactive") Dừng hoạt động
-                option(value="delete") Xóa  
-              div(class="sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] bg-[#4099ff] rounded-tr-[5px] rounded-br-[5px]")
-                button(class="text-white font-[700]" type="submit") Áp dụng
+            form(form-change-multi data-patch=`/${prefixAdmin}/products/change-multi`) 
+              div(class="flex items-center justify-center")
+                select(name="status" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] sm:w-[250px] w-[180px] outline-none" show-select)  
+                  option(value="active") Hoạt động
+                  option(value="inactive") Dừng hoạt động
+                  option(value="delete") Xóa  
+                div(class="bg-[#4099ff] rounded-tr-[5px] rounded-br-[5px] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]")
+                  button(class="text-white font-[700] sm:px-[12px] px-[8px] sm:py-[10px] py-[6px]" type="submit") Áp dụng
         div(class="mt-[30px] overflow-x-auto")
           table(class="w-full")
             thead(class="bg-[#4099ff] bg-opacity-15")
@@ -97,37 +95,39 @@ block main
                     div(class="lg:w-[100px] lg:h-[100px] w-[70px] h-[70px]")
                       img(src=item.thumbnail, alt=item.title, srcset="" class="w-full h-full object-cover")
                   td(class="lg:p-[8px] p-[5px] min-w-[150px] max-w-[150px]") #{item.title}
-                  td(class="lg:p-[8px] p-[5px]") #{item.price} VND
+                  td(class="lg:p-[8px] p-[5px]") #{item.price.toLocaleString()} VND
                   td(class="lg:p-[8px] p-[5px]") 
-                    input(type="number" value=item.position class="w-[60px] outline-none border-[1px] border-black rounded-[3px] text-center")
+                    input(type="number" value=item.position item-id=item.id input-position data-patch= `/${prefixAdmin}/products/change-position` class="w-[60px] outline-none border-[1px] border-black rounded-[3px] text-center")
                   td(class="lg:p-[8px] p-[5px]") 
                     if(item.status == "active")
-                      button(class="text-[#2ED8B6] bg-[#2ED8B6] bg-opacity-20 w-[100px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30") Hoạt động
+                      button(class="text-[#2ED8B6] bg-[#2ED8B6] bg-opacity-20 w-[100px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30" button-change-status="inactive" item-id=item.id data-patch=`/${prefixAdmin}/products/change-status`) Hoạt động
                     else 
-                      button(class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[130px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30") Dừng hoạt động
+                      button(class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[130px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30" button-change-status="active" item-id=item.id data-patch=`/${prefixAdmin}/products/change-status`) Dừng hoạt động
                   td(class="lg:p-[8px] p-[5px]") #{item.createdBy}
                   td(class="lg:p-[8px] p-[5px]") #{item.updatedBy}
                   td(class="lg:p-[8px] p-[5px] w-[150px]") 
                     div(class="flex")
                       a(href="#" class="text-[#17A2B8] bg-[#17A2B8] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
                         i(class="fa-solid fa-info")
-                      a(href="#" class="text-[#FFB64D] bg-[#FFB64D] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                      a(href=`/${prefixAdmin}/products/edit/${item.id}` class="text-[#FFB64D] bg-[#FFB64D] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
                         i(class="fa-solid fa-pen-to-square")
-                      a(href="#" class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                      button(data-patch=`/${prefixAdmin}/products/delete` button-id=item.id button-delete class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
                           i(class="fa-solid fa-trash-can")
             tfoot()
               tr  
                 td(class="text-center pt-[30px]" colspan="10")
                   ul(class="block") 
                     li(class="text-center")
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 rounded-tl-[4px] rounded-bl-[4px] hover:bg-[#EEEEEE]") 
-                        i(class="fa-solid fa-angles-left")
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]") 
-                        i(class="fa-solid fa-angle-left")
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 font-[600] hover:bg-[#EEEEEE] active") 1
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 font-[600] hover:bg-[#EEEEEE]") 2
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]") 
-                        i(class="fa-solid fa-angle-right")
-                      button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] rounded-tr-[4px] rounded-br-[4px] hover:bg-[#EEEEEE]") 
-                        i(class="fa-solid fa-angles-right")
+                      if(currentPage > 1)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 rounded-tl- [4px] rounded-bl-[4px] hover:bg-[#EEEEEE]" button-pagination=1) 
+                          i(class="fa-solid fa-angles-left")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage-1) 
+                          i(class="fa-solid fa-angle-left")
+                      - for(var i = 1; i <= totalPage; i++)
+                          button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] font-[600] hover:bg-[#EEEEEE] "+(totalPage==1 ? '' : "border-r-0") button-pagination=i) #{i}
+                      if(currentPage < totalPage)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage+1) 
+                          i(class="fa-solid fa-angle-right")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] rounded-tr-[4px] rounded-br-[4px] hover:bg-[#EEEEEE]" button-pagination=totalPage) 
+                          i(class="fa-solid fa-angles-right")
     //- End list

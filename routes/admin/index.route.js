@@ -1,5 +1,5 @@
 const dashboardRoute = require('./dashboard.route');
-const productsRoute = require('./products.route');
+const productsRoute = require('./product.route');
 
 const systemConfig = require('../../config/system');
 
