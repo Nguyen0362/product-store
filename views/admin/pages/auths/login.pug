@@ -1,0 +1,27 @@
+extends ../../layouts/auth.pug 
+
+block main
+  div(class="login-area bg-[linear-gradient(rgba(255,255,255,0.7)_240px,_#f2f7fb_0%)] w-full min-h-[100vh] py-[30px] " style="background-color: #42a5f5;")
+    div(class="flex justify-center px-[15px]")
+      img(src="/admin/images/logo (1).png")
+    div(class="p-[20px] max-w-[450px] mx-auto mt-[20px] bg-[#fff] rounded-[5px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1); 43, 0.1);")
+      form(
+        action=`/${prefixAdmin}/auths/login`
+        method="POST"
+      )
+        div(class="")
+          div(class="mb-[50px]")
+            h1(class="text-center text-[24px] font-[600]") Đăng Nhập
+          div(class="mb-[40px] relative")
+            input(type="text" name="email" required class="floating-input bg-[#fff] w-full h-[43px] outline-none border-b border-[#ccc] text-[16px] font-[400] peer")
+            span(class="relative block w-full after:content-[''] after:absolute after:left-[50%] after:w-[0] after:bottom-0 after:h-[2px] after:bg-[#4099ff] after:transition-all after:duration-300 after:ease-in-out after:peer-focus:w-[50%] before:content-[''] before:absolute before:right-[50%] before:w-[0] before:bottom-0 before:h-[2px] before:bg-[#4099ff] before:transition-all before:duration-300 before:ease-in-out before:peer-focus:w-[50%]") 
+            label(class="label-floating-input absolute left-0 font-[500] text-[16px] top-[12px] peer-focus:text-[12px] peer-focus:text-[#4099ff] peer-focus:top-[-14px] transition-all duration-300 ease-in-out pointer-events-none") Email
+          div(class="relative mb-[40px]")
+            label(for="inputShowPassword" class="label-show-password absolute top-[50%] translate-y-[-50%] right-[10px] text-center leading-[30px] w-[30px] h-[30px] rounded-[50%] cursor-pointer text-[14px] hover:bg-[#F2F2F2] hidden") 
+              input(type="checkbox" id="inputShowPassword" class="hidden" onClick="onClickShowPassword()")
+              i(class="fa-regular fa-eye-slash")
+            input(type="password" name="password" required class="floating-input peer w-full h-[43px] outline-none border-b border-[#ccc] text-[16px] font-[400] pr-[50px]")
+            span(class="relative block w-full after:content-[''] after:absolute after:left-[50%] after:w-[0] after:bottom-0 after:h-[2px] after:bg-[#4099ff] after:transition-all after:duration-300 after:ease-in-out after:peer-focus:w-[50%] before:content-[''] before:absolute before:right-[50%] before:w-[0] before:bottom-0 before:h-[2px] before:bg-[#4099ff] before:transition-all before:duration-300 before:ease-in-out before:peer-focus:w-[50%]")
+            label(class="label-floating-input absolute left-0 top-[12px] text-[16px] font-[500] peer-focus:text-[12px] peer-focus:text-[#4099ff] peer-focus:top-[-14px] transition-all duration-300 ease-in-out pointer-events-none") Mật khẩu
+          div(class="")
+            button(class="bg-[#4099ff] text-white w-full py-[10px] px-[16px] text-[15px] font-[600] rounded-[2px] hover:bg-[#73B4FF] transition-all duration-300 ease-in-out uppercase leading-[23px]" type="submit") Đăng nhập

@@ -1,0 +1,36 @@
+//- chat list 
+div(class="chat-list w-[280px] h-full bg-[#fff] fixed right-0 top-0 z-[1030] shadow-[-2px_0_11px_-2px_rgba(0,0,0,0.3)] translate-x-[calc(100%+40px)] transition-all duration-700 ease-in-out")
+  div(class="")
+    div(class="p-[20px] mb-[20px]")
+      span(class="button-close-chat w-[40px] h-[40px] bg-[#fff] absolute top-[80px] left-[-40px] text-center rounded-tl-[50%] rounded-bl-[50%] shadow-[-2px_0_9px_-2px_rgba(0,0,0,0.3)] leading-[40px] cursor-pointer")
+        i(class="fa-solid fa-xmark")
+      div(class="")
+        form(action="" class="inner-form")
+          div(class="flex")
+            input(type="text" class="w-full px-[6px] pl-[12px] pr-[50px] h-[45px] bg-[#fff] outline-none border-[1px] border-[#ccc] border-r-0 rounded-tl-[2px] rounded-bl-[2px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]" placeholder="Tìm kiếm") 
+            button(class="w-[80px] h-[45px] rounded-tr-[2px] rounded-br-[2px] text-[15px] text-white bg-[#4099ff] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]" type="submit")
+              i(class="fa-solid fa-magnifying-glass")
+    div(class="chat-list-main")
+      ul(class="")
+        
+//-end chat list
+
+//-chat message
+div(class="chat-message w-[280px] h-full bg-[#fff] fixed right-0 top-0 z-[1031] shadow-[-2px_0_11px_-2px_rgba(0,0,0,0.3)] translate-x-[calc(100%+40px)] transition-all duration-700 ease-in-out flex flex-col")
+  div(class="p-[20px] border-b-[1px] border-[#ccc]")
+    span(class="button-close-chat w-[40px] h-[40px] bg-[#fff] absolute top-[80px] left-[-40px] text-center rounded-tl-[50%] rounded-bl-[50%] shadow-[-2px_0_9px_-2px_rgba(0,0,0,0.3)] leading-[40px] cursor-pointer")
+      i(class="fa-solid fa-xmark")
+    h5(class="chat-message-title text-[14px] font-[600] text-black text-center")
+  div(class="chat-message-main py-[10px] h-[calc(100vh-150px)] overflow-y-auto")
+    //- div(class="inner-list-typing")
+    //-   div(class="box-typing")
+    //-     div(class="inner-dots h-[20px] w-[50px] inline-flex rounded-[45px] items-center justify-center bg-[#efefef]")
+    //-       span(class="h-[5px] w-[5px] rounded-[50%] bg-[#252525]")
+  div(class="p-[20px] border-t-[1px] border-[#ccc] absolute bottom-0 bg-[#FFFFFF]")
+    form(action="" class="inner-form")
+      div(class="flex")
+        input(type="text" class="w-full px-[6px] pl-[12px] pr-[50px] h-[45px] bg-[#fff] outline-none border-[1px] border-[#ccc] border-r-0 rounded-tl-[2px] rounded-bl-[2px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]" placeholder="Nhập nội dung..." name="content") 
+        button(class="w-[80px] h-[45px] rounded-tr-[2px] rounded-br-[2px] text-[15px] text-white bg-[#4099ff] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]")
+          i(class="fa-regular fa-comment") 
+      
+//-end chat message

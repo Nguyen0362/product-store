@@ -1,0 +1,54 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug 
+include ../../mixins/box-filter.pug 
+
+block main 
+    +breadcrumb(
+      'fa-solid fa-user-group', 
+      pageTitle,
+      [
+          {label: pageTitle, href: `/${prefixAdmin}/roles`, icon: 'fa-solid fa-user-group'}
+      ]
+    )
+
+    //- list
+    div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Danh sách
+      div(class="mt-[50px]")
+        div(class="flex justify-end")
+          if(role.permissions.includes("roles_permission"))
+            div(class="flex justify-end mb-[30px] mr-[30px]")
+              a(href=`/${prefixAdmin}/roles/permission` class="text-[#4099ff] px-[12px] py-[10px] border-[1px] border-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#4099ff] hover:text-white") 
+                i(class="fa-solid fa-shield-halved")
+                span(class="ml-[5px]") Phân quyền
+          if(role.permissions.includes("roles_create"))
+            div(class="flex justify-end mb-[30px]")
+              a(href=`/${prefixAdmin}/roles/create` class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") 
+                i(class="fa-solid fa-plus")
+                span(class="ml-[5px]") Thêm mới 
+        div(class="mt-[30px] overflow-x-auto")
+          table(class="w-full min-w-[800px]")
+            thead(class="bg-[#4099ff] bg-opacity-15")
+              tr(class="")
+                th(class="lg:p-[8px] p-[5px] font-[700]") STT 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Nhóm quyền
+                th(class="lg:p-[8px] p-[5px] font-[700]") Mô tả ngắn
+                th(class="lg:p-[8px] p-[5px] font-[700] rounded-tr-[3px]") Hành động 
+            tbody 
+              each item, index in roles
+                tr   
+                  td(class="lg:p-[8px] p-[5px]") #{index + 1}
+                  td(class="lg:p-[8px] p-[5px]") #{item.title}
+                  td(class="lg:p-[8px] p-[5px]") #{item.description}
+                  td(class="lg:p-[8px] p-[5px] w-[150px]") 
+                    div(class="flex")
+                      a(href=`/${prefixAdmin}/roles/detail/${item.id}` class="text-[#17A2B8] bg-[#17A2B8] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                        i(class="fa-solid fa-info")
+                      if(role.permissions.includes("roles_edit"))
+                        a(href=`/${prefixAdmin}/roles/edit/${item.id}` class="text-[#FFB64D] bg-[#FFB64D] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                          i(class="fa-solid fa-pen-to-square")
+                      if(role.permissions.includes("roles_delete"))
+                        button(data-patch=`/${prefixAdmin}/roles/delete` button-id=item.id button-delete class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                          i(class="fa-solid fa-trash-can")
+    //- End list

@@ -1,0 +1,36 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug
+
+block main
+    +breadcrumb(
+        'fa-solid fa-pen-to-square',
+        pageTitle,
+        [
+          {label: "Danh mục banner", href: `/${prefixAdmin}/banner-category`, icon: 'fa-solid fa-image'},
+          {label: pageTitle}
+        ]
+    )
+
+    div(class="product-list__create rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Chỉnh sửa 
+      div(class="mt-[50px]")
+        form(
+          action=`/${prefixAdmin}/banner-category/edit/${category.id}?_method=PATCH`
+          method="POST"
+        ) 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="title" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") Tiêu đề
+            div(class="flex-1")
+              input(type="text" name="title" id="title" value=category.title class="w-full outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="description" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") 
+              |Mô tả ngắn
+            div(class="flex-1")
+              textarea(name="description" id="description" placeholder="Mô tả ngắn" class="w-full min-h-[100px] outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") #{category.description}
+          div(class="flex sm:justify-start justify-center") 
+            div(class="sm:w-[17%] w-0")
+            button(type="submit" class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") Cập nhập
+
+
+            

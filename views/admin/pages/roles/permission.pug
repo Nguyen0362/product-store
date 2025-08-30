@@ -1,0 +1,204 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug 
+include ../../mixins/box-filter.pug 
+
+block main 
+    +breadcrumb(
+      'fa-solid fa-shield-halved', 
+      pageTitle,
+      [
+        {label: "Nhóm quyền", href: `/${prefixAdmin}/roles`, icon: 'fa-solid fa-user-group'},
+        {label: pageTitle, href: `/${prefixAdmin}/roles/permission`,}
+      ]
+    )
+
+    //- list
+    div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Danh sách
+      div(class="mt-[50px]")
+        div(class="flex justify-end mb-[30px]")
+          button(type="submit" button-submit data-patch=`/${prefixAdmin}/roles/permission` class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") 
+            i(class="fa-solid fa-pen-to-square")
+            span(class="ml-[5px]") Cập nhật
+        div(class="mt-[30px] overflow-x-auto")
+          table(class="min-w-[1160px]" table-permission=roles)
+            thead(class="bg-[#4099ff] bg-opacity-15")
+              tr(class="")
+                th(class="lg:p-[8px] p-[5px] font-[700]") Tính năng 
+                each item in roles
+                  th(class="lg:p-[8px] p-[5px] font-[700]" role-id=item.id) #{item.title}
+            tbody 
+              //- dashboard
+              tr
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Tổng quản
+              tr(data-name="dashboard_view")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //- End dashboard
+
+              //-product category
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Danh mục sản phẩm
+              tr(data-name="products-category_view")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products-category_create") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products-category_edit")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products-category_delete")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //-end product category
+
+              //- products 
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Sản phẩm
+              tr(data-name="products_view")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products_create") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products_edit")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="products_delete")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //- end products 
+
+              //-banner category
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Danh mục banner
+              tr(data-name="banners-category_view")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners-category_create") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners-category_edit")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners-category_delete")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //-end banner category
+
+              //- banner 
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Banner
+              tr(data-name="banners_view")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners_create") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners_edit")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="banners_delete")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //- end banner 
+
+              //- role 
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Nhóm quyền
+              tr(data-name="roles_view") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="roles_create") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="roles_edit") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="roles_delete") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="roles_permission") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Phân quyền
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //- end role 
+
+              //- account 
+              tr 
+                td(class="lg:p-[8px] p-[5px]" colspan=roles.length+1)
+                  b Tài khoản
+              tr(data-name="accounts_view") 
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") xem
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="accounts_create")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Thêm
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="accounts_edit")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Sửa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              tr(data-name="accounts_delete")
+                td(class="lg:py-[8px] lg:pr-[8px] lg:pl-[30px] py-[5px] pr-[5px] pl-[25px]") Xóa
+                each item in roles  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" data-id=item.id)
+              //- end account 
+              
+    //- End list

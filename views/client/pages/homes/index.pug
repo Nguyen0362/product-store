@@ -1,0 +1,544 @@
+extends ../../layouts/default.pug 
+
+block main  
+
+  //- slide-area
+  section(class="slide-area")
+    div(class="swiper mySwiper")
+      div(class="swiper-wrapper")
+        div(class="swiper-slide")
+          div(class="relative") 
+            img(src=banners.bannerSlideLeft.thumbnail[0] alt=banners.bannerSlideLeft.title srcset="" class="lg:min-h-[calc(100vh-170px)] min-h-[calc(100vh-90px)] h-[500px] w-full object-cover")
+            div(class="absolute top-0 left-0 w-[100%] h-[100%]")
+              div(class="custom-container mx-auto h-[100%]")
+                div(class="flex w-full h-full items-center")
+                  div(class="xl:w-[50%] md:w-[75%] w-[100%] md:text-left text-center")
+                    h6(class="text-[16px] pb-[20px] text-primary font-[600] uppercase") #{banners.bannerSlideLeft.subtitle}
+                    h1(class="xl:text-[54px] lg:text-[48px] text-[40px] text-black font-[700] uppercase leading-[1.2]") #{banners.bannerSlideLeft.title}
+                    p(class="text-[18px] text-black pt-[9px] pb-[27px]") Kết hợp chất lượng và độ tin cậy trong một
+                    a(href=banners.bannerSlideLeft.link class="inline-block px-[30px] text-[14px] text-white bg-black font-[600] leading-[40px] uppercase relative z-[1] transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white")
+                      span(class="") #{banners.bannerSlideLeft.button_text}
+        div(class="swiper-slide")
+          div(class="relative") 
+            img(src=banners.bannerSlideRight.thumbnail[0] alt=banners.bannerSlideRight.title srcset="" class="lg:min-h-[calc(100vh-170px)] min-h-[calc(100vh-90px)] h-[500px] w-full object-cover")
+            div(class="absolute top-0 right-0 w-[100%] h-[100%]")
+              div(class="custom-container mx-auto h-[100%]")
+                div(class="flex w-full h-full items-center justify-end")
+                  div(class="xl:w-[50%] md:w-[75%] w-[100%] text-center")
+                    h6(class="text-[16px] pb-[20px] text-primary font-[600] uppercase") #{banners.bannerSlideRight.subtitle}
+                    h1(class="xl:text-[54px] lg:text-[48px] text-[40px] text-black font-[700] uppercase leading-[1.2]") #{banners.bannerSlideRight.title}
+                    p(class="text-[18px] text-black pt-[9px] pb-[27px]") Kết hợp chất lượng và độ tin cậy trong một
+                    a(href=banners.bannerSlideRight.link class="inline-block px-[30px] text-[14px] text-white bg-black font-[600] leading-[40px] uppercase relative z-[1] transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white")
+                      span(class="") #{banners.bannerSlideRight.button_text}
+  //- end slide-area
+
+  //- banner-area
+  section(class="banner-area md:py-[60px] py-[40px]") 
+    div(class="custom-container mx-auto")
+      div(class="grid xl:grid-cols-2 grid-cols-1 gap-x-[24px]")
+        div(class="mt-[30px]")   
+          a(href=banners.bannerSubLeft.link class="relative group overflow-hidden block")
+            img(src=banners.bannerSubLeft.thumbnail[0] alt=banners.bannerSubLeft.title class="xl:h-[500px] h-[430px] min-h-[100%] min-w-[101%] object-cover group-hover:scale-[1.05] transition-all duration-500 ease-linear")  
+            div(class="absolute top-[50%] translate-y-[-50%] p-[40px] xl:w-[58%] md:w-[75%] w-[100%]")
+              h5(class="text-[#fa323c] text-[20px] font-[400] capitalize") #{banners.bannerSubLeft.subtitle}
+              h3(class="text-[30px] text-[#1A1A1A] font-[500] pt-[10px] pb-[15px] leading-[1.2] capitalize") #{banners.bannerSubLeft.title}
+              span(class="text-[14px] text-[#000000] font-[500] uppercase pb-[5px] relative after:content-[''] after:w-0 after:h-[2px] after:bg-[#FA323C] after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-300 after:ease-linear after:group-hover:w-full")  #{banners.bannerSubLeft.button_text}
+        div(class="")
+          div(class="mt-[30px]")   
+            a(href=banners.bannerSubRightTop.link class="relative group overflow-hidden block")
+              img(src=banners.bannerSubRightTop.thumbnail[0] alt="" class="min-h-[100%] h-[235px] min-w-[101%] object-cover group-hover:scale-[1.05] transition-all duration-500 ease-linear")  
+              div(class="absolute left-0 top-[50%] translate-y-[-50%] p-[40px] xl:text-left text-left")
+                h5(class="text-[#fa323c] text-[20px] font-[400] capitalize") #{banners.bannerSubRightTop.subtitle}
+                h3(class="text-[30px] capitalize text-black font-[500] sm:pt-[10px] pt-[5px] sm:pb-[15px] pb-[10px]") #{banners.bannerSubRightTop.title}
+                span(class="text-[14px] text-[#000000] font-[500] uppercase pb-[5px] relative after:content-[''] after:w-0 after:h-[2px] after:bg-[#FA323C] after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-300 after:ease-linear after:group-hover:w-full")  #{banners.bannerSubRightTop.button_text}
+          div(class="mt-[30px]")   
+            a(href=banners.bannerSubRightBottom.link class="relative group overflow-hidden block")
+              img(src=banners.bannerSubRightBottom.thumbnail[0] alt="" class="min-h-[100%] h-[235px] min-w-[101%] object-cover group-hover:scale-[1.05] transition-all duration-500 ease-linear")  
+              div(class="absolute left-0 top-0 py-[40px] px-[20px] w-full h-full")
+                div(class="flex justify-end items-center w-full h-full")
+                  div(class="absolute left-0 top-[50%] translate-y-[-50%] p-[40px] xl:text-left text-left")
+                    h5(class="text-[#fa323c] text-[20px] font-[400] capitalize") #{banners.bannerSubRightBottom.subtitle}
+                    h3(class="text-[30px] capitalize text-black font-[500] sm:pt-[10px] pt-[5px] sm:pb-[15px] pb-[10px]") #{banners.bannerSubRightBottom.title}
+                    span(class="text-[14px] text-[#000000] font-[500] uppercase pb-[5px] relative after:content-[''] after:w-0 after:h-[2px] after:bg-[#FA323C] after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-300 after:ease-linear after:group-hover:w-full")  #{banners.bannerSubRightBottom.button_text}
+      
+  //- end banner-area
+  
+  //- categories tab 
+  section(class="categories-tab py-[60px]")
+    div(class="custom-container mx-auto")
+      div(class="")
+        ul(class="nav flex justify-center flex-wrap pb-[30px]")
+          li(class="nav-item")
+            button(class="nav-link font-[600] lg:text-[36px] text-[22px] leading-[2] text-black lg:mx-[20px] mx-[10px] mt-[10px] relative transition-all duration-150 ease-linear after:content-[''] after:w-[100px] after:h-[2px] after:bg-primary after:absolute after:bottom-0 after:left-[50%] after:translate-x-[-50%] after:hidden active" id="best-seller-tab") Bán Chạy Nhất
+          li(class="nav-item")
+            button(class="nav-link font-[600] lg:text-[36px] text-[22px] leading-[2] text-black lg:mx-[20px] mx-[10px] mt-[10px] relative transition-all duration-150 ease-linear after:content-[''] after:w-[100px] after:h-[2px] after:bg-primary after:absolute after:bottom-0 after:left-[50%] after:translate-x-[-50%] after:hidden" id="new-arrivals-tab") Hàng Mới Về
+          li(class="nav-item")
+            button(class="nav-link font-[600] lg:text-[36px] text-[22px] leading-[2] text-black lg:mx-[20px] mx-[10px] mt-[10px] relative transition-all duration-150 ease-linear after:content-[''] after:w-[100px] after:h-[2px] after:bg-primary after:absolute after:bottom-0 after:left-[50%] after:translate-x-[-50%] after:hidden" id="top-rated-tab") Đánh giá cao
+      div(class="")
+        div(class="tab-content sm:px-[30px] px-[0]")
+          div(class="tab-pane relative transition-opacity duration-150 ease-linear hidden opacity-100 active" aria-labelledby="best-seller-tab")
+            div(class="bestSellerSwiper-button-prev absolute left-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-left")
+            div(class="swiper bestSellerSwiper")
+              div(class="swiper-wrapper")
+                -for(let i = 0; i < 6; i++)
+                  div(class="swiper-slide")
+                    div(class="group")
+                      div(class="relative overflow-hidden")
+                        div(class="absolute left-[8px] top-[8px] z-[10] flex flex-col")
+                          span(class="text-[10px] text-white bg-black font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") Mới
+                          span(class="text-[10px] text-white bg-primary font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") -40%
+                        a(href="#")
+                          img(src="/images/products-3.jpg" alt="" class="min-w-full h-full object-cover opacity-100 visible group-hover:opacity-0 group-hover:invisible transition-all duration-500 ease-linear") 
+                          img(src="/images/products-hover-3.png" alt="" class="absolute top-0 left-0 min-w-full h-full object-cover opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-linear") 
+                        div(class="lg:block hidden invisible absolute top-[20%] translate-y-[-20%] right-[-20px] transition-all duration-500 z-[2] opacity-0 group-hover:opacity-[1] group-hover:translate-x-[-90%] group-hover:visible")  
+                          ul(class="") 
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-eye")
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible duration-300 before:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Xem nhanh
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-heart") 
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Danh sách mong muốn      
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-solid fa-arrow-right-arrow-left")
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") So sánh
+                        a(href="#" class="absolute right-[30px] left-[30px] bottom-[-30px] flex justify-center px-[25px] py-[15px] text-[14px] text-white bg-black font-[500] leading-[24px] uppercase z-[1] duration-500 delay-100 opacity-0 invisible group-hover:translate-y-[-110%] group-hover:visible group-hover:opacity-100 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Thêm vào giỏ hàng
+                      div(class="text-center pt-[14px]")
+                        span(class="text-[12px] leading-[22px] text-[#555555] font-[400] uppercase tracking-[0.04em]") Giày nam
+                        h5(class="pt-[4px] pb-[5px]")       
+                          a(href="#" class="text-[17px] font-[400] transition-all duration-500 ease-linear text-black hover:text-primary capitalize") Giày thể thao ngoài trời
+                        div(class="flex text-[14px] justify-center")
+                          p(class="pr-[10px] font-[500] text-primary text-[14px] leading-[28px] tracking-[0.04em]") 
+                            del(class="text-[#555555] font-[300] mr-[5px]") $200.00
+                            |$160      
+            div(class="bestSellerSwiper-button-next absolute right-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-right")
+          div(class="tab-pane relative transition-opacity duration-150 ease-linear hidden opacity-0" aria-labelledby="new-arrivals-tab")
+            div(class="newArrivalSwiper-button-prev absolute left-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-left")
+            div(class="swiper newArrivalSwiper")
+              div(class="swiper-wrapper")
+                each item in newArrivals
+                  div(class="swiper-slide")
+                    div(class="group")
+                      div(class="relative overflow-hidden")
+                        div(class="absolute left-[8px] top-[8px] z-[10] flex flex-col")
+                          if(item.dayAgo <= 7)
+                            span(class="text-[10px] text-white bg-black font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") Mới
+                          if(item.discountPercentage || item.discountPercentage != 0)
+                            span(class="text-[10px] text-white bg-primary font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") -#{item.discountPercentage}%
+                        a(href="#")
+                          if(item.thumbnail.length < 2)
+                            img(src=item.thumbnail[0] alt=item.title class="min-w-full h-full object-cover")  
+                          else 
+                            img(src=item.thumbnail[0] alt=item.title class="min-w-full h-full object-cover opacity-100 visible group-hover:opacity-0 group-hover:invisible transition-all duration-500 ease-linear") 
+                            img(src=item.thumbnail[1] alt=item.title class="absolute top-0 left-0 min-w-full h-full object-cover opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-linear") 
+                        div(class="lg:block hidden invisible absolute top-[20%] translate-y-[-20%] right-[-20px] transition-all duration-500 z-[2] opacity-0 group-hover:opacity-[1] group-hover:translate-x-[-90%] group-hover:visible")  
+                          ul(class="") 
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-eye")
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible duration-300 before:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Xem nhanh
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-heart") 
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Danh sách mong muốn      
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-solid fa-arrow-right-arrow-left") 
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") So sánh
+                        a(href="#" class="absolute right-[30px] left-[30px] bottom-[-30px] flex justify-center px-[25px] py-[15px] text-[14px] text-white bg-black font-[500] leading-[24px] uppercase z-[1] duration-500 delay-100 opacity-0 invisible group-hover:translate-y-[-110%] group-hover:visible group-hover:opacity-100 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Thêm vào giỏ hàng
+                      div(class="text-center pt-[14px]")
+                        span(class="text-[12px] leading-[22px] text-[#555555] font-[400] uppercase tracking-[0.04em]") #{item.category.title}
+                        h5(class="pt-[4px] pb-[5px]")       
+                          a(href="#" class="text-[17px] font-[400] transition-all duration-500 ease-linear text-black hover:text-primary capitalize") #{item.title}
+                        div(class="flex text-[14px] justify-center")
+                          p(class="pr-[10px] font-[500] text-primary text-[14px] leading-[28px] tracking-[0.04em]") 
+                            if(item.priceNew != item.price)
+                              del(class="text-[#555555] font-[300] mr-[5px]") #{item.priceNew.toLocaleString()} đ
+                            | #{item.price.toLocaleString()} đ   
+            div(class="newArrivalSwiper-button-next absolute right-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-right")
+          div(class="tab-pane relative transition-opacity duration-150 ease-linear hidden opacity-0" aria-labelledby="top-rated-tab")
+            div(class="topRatedSwiper-button-prev absolute left-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-left")
+            div(class="swiper topRatedSwiper")
+              div(class="swiper-wrapper")
+                -for(let i = 0; i < 6; i++)
+                  div(class="swiper-slide")
+                    div(class="group")
+                      div(class="relative overflow-hidden")
+                        div(class="absolute left-[8px] top-[8px] z-[10] flex flex-col")
+                          span(class="text-[10px] text-white bg-black font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") Mới
+                          span(class="text-[10px] text-white bg-primary font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") -40%
+                        a(href="#")
+                          img(src="/images/productss3-5.png" alt="" class="min-w-full h-full object-cover")  
+                        div(class="lg:block hidden invisible absolute top-[20%] translate-y-[-20%] right-[-20px] transition-all duration-500 z-[2] opacity-0 group-hover:opacity-[1] group-hover:translate-x-[-90%] group-hover:visible")  
+                          ul(class="") 
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-eye")
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible duration-300 before:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Xem nhanh
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-regular fa-heart") 
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Danh sách mong muốn      
+                            li(class="icon relative") 
+                              a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                                i(class="fa-solid fa-arrow-right-arrow-left") 
+                                span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") So sánh
+                        a(href="#" class="absolute right-[30px] left-[30px] bottom-[-30px] flex justify-center px-[25px] py-[15px] text-[14px] text-white bg-black font-[500] leading-[24px] uppercase z-[1] duration-500 delay-100 opacity-0 invisible group-hover:translate-y-[-110%] group-hover:visible group-hover:opacity-100 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Thêm vào giỏ hàng
+                      div(class="text-center pt-[14px]")
+                        span(class="text-[12px] leading-[22px] text-[#555555] font-[400] uppercase tracking-[0.04em]") Giày nam
+                        h5(class="pt-[4px] pb-[5px]")       
+                          a(href="#" class="text-[17px] font-[400] transition-all duration-500 ease-linear text-black hover:text-primary capitalize") Giày thể thao ngoài trời
+                        div(class="flex text-[14px] justify-center")
+                          p(class="pr-[10px] font-[500] text-primary text-[14px] leading-[28px] tracking-[0.04em]") 
+                            del(class="text-[#555555] font-[300] mr-[5px]") $200.00
+                            |$160      
+            div(class="topRatedSwiper-button-next absolute right-[-65px] top-[40%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white sm:flex hidden justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+                i(class="fa-solid fa-arrow-right")
+  //- end categories tab 
+
+  //- video-area
+  section(class="py-[65px] my-[60px] video-area")  
+    div(class="custom-container mx-auto")
+      div(class="grid xl:grid-cols-2 grid-cols-1")
+        div(class="relative h-[350px] lg:h-[400px] xl:h-full xl:overflow-visible overflow-hidden")
+          div(class="absolute top-[-65px] bottom-[-65px] left-0 right-0 bg-cover bg-center" style="background-image:url('/images/video-v2-img1.jpg')")
+            div(class="absolute right-0 left-0 top-0 bottom-0 flex items-center justify-center")
+              a(href="#" class="lg:w-[220px] lg:h-[220px] md:w-[120px] md:h-[120px] sm:w-[90px] sm:h-[90px] w-[70px] h-[70px] lg:text-[60px] sm:text-[30px] text-[20px] text-[#ffffff] border-[2px] border-[#ffffff] rounded-[50%] flex items-center justify-center")
+                img(src="/images/play-button (1).png", alt="" class="lg:w-[60px] lg:h-[60px] sm:w-[40px] sm:h-[40px] w-[30px] h-[30px]")
+        div(class="bg-[#faf7f4]")
+          div(class="xl:p-[120px] lg:px-[80px] lg:pt-[120px] lg:pb-[110px] px-[50px] pt-[80px] pb-[73px]")
+            div(class="")
+              span(class="text-[16px] leading-[26px] font-[600px] text-[#555555]")
+                |Nhanh lên, ưu đãi sẽ kết thúc sớm thôi
+            h2(class="pt-[12px] pb-[25px] xl:text-[48px] lg:text-[40px] text-[36px] text-black font-[700] capitalize") Ưu đãi tốt nhất hôm nay
+            div(class="") 
+              p(class="text-[15px] text-[#555555]") Xây dựng mối quan hệ hai chiều một cách đáng tin cậy sau khi liên kết được trao quyền. Hoàn toàn kết nối các nguồn lực dựa trên khách hàng một cách hiệu quả trước khi thực hiện các phương pháp hay nhất được kích hoạt. Kết nối mạng lưới một cách ấn tượng các phương pháp hay nhất sẵn có trong khi vẫn hiệu quả vốn trí tuệ.
+            div(class="mt-[45px]")
+              a(href="#" class="inline-block px-[30px] text-[14px] text-white bg-black font-[600] leading-[40px] uppercase relative z-[1] transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Khám phá thêm
+  //- end vide-area
+
+  //- product lastest area 
+  section(class="py-[60px]")
+    div(class="custom-container mx-auto")
+      div(class="pb-[23px] text-center")
+        h2(class="xl:text-[48px] lg:text-[40px] text-[36px] leading-[1.2] text-black font-[700] capitalize") Giày mới nhất
+        p(class="text-[16px] text-[#555555] font-[400] leading-[1.6]") Thương hiệu hàng đầu cuối tuần
+      div(class="")
+        ul(class="flex justify-center flex-wrap")
+          each item in productsLastest
+            li(class="px-[15px] mt-[30px] lg:w-[calc(100%/3)] w-[calc(100%/2)]")
+              div(class="group")
+                div(class="relative overflow-hidden")
+                  div(class="absolute left-[8px] top-[8px] z-[10] flex flex-col")
+                    if(item.dayAgo <= 7)
+                      span(class="text-[10px] text-white bg-black font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") Mới
+                    if(item.discountPercentage || item.discountPercentage != 0)
+                      span(class="text-[10px] text-white bg-primary font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[11px] mb-[5px] leading-[18px]") -#{item.discountPercentage}%
+                  a(href="#")
+                    if(item.thumbnail.length < 2)
+                      img(src=item.thumbnail[0] alt=item.title class="min-w-full h-full object-cover")  
+                    else 
+                      img(src=item.thumbnail[0] alt=item.title class="min-w-full h-full object-cover opacity-100 visible group-hover:opacity-0 group-hover:invisible transition-all duration-500 ease-linear") 
+                      img(src=item.thumbnail[1] alt=item.title class="absolute top-0 left-0 min-w-full h-full object-cover opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-linear") 
+                  div(class="lg:block hidden invisible absolute top-[20%] translate-y-[-20%] right-[-20px] transition-all duration-500 z-[2] opacity-0 group-hover:opacity-[1] group-hover:translate-x-[-90%] group-hover:visible")  
+                    ul(class="") 
+                      li(class="icon relative") 
+                        a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                          i(class="fa-regular fa-eye")
+                          span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible duration-300 before:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Xem nhanh
+                      li(class="icon relative") 
+                        a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                          i(class="fa-regular fa-heart") 
+                          span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") Danh sách mong muốn      
+                      li(class="icon relative") 
+                        a(href="#" class="group/item h-[40px] w-[40px] text-[14px] text-black rounded-[30px] m-[5px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+                          i(class="fa-solid fa-arrow-right-arrow-left") 
+                          span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[90px] py-[4px] px-[8px] inline-block text-white absolute top-[50%] right-[110%] translate-y-[-50%] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-x-[5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[97%] before:top-[50%] before:translate-y-[-50%] before:translate-x-[-50%] before:rotate-[45deg]") So sánh
+                  a(href="#" class="absolute right-[30px] left-[30px] bottom-[-30px] flex justify-center px-[25px] py-[15px] text-[14px] text-white bg-black font-[500] leading-[24px] uppercase z-[1] duration-500 delay-100 opacity-0 invisible group-hover:translate-y-[-110%] group-hover:visible group-hover:opacity-100 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Thêm vào giỏ hàng
+                div(class="text-center pt-[14px]")
+                  span(class="text-[12px] leading-[22px] text-[#555555] font-[400] uppercase tracking-[0.04em]") #{item.category.title}
+                  h5(class="pt-[4px] pb-[5px]")       
+                    a(href="#" class="text-[17px] font-[400] transition-all duration-500 ease-linear text-black hover:text-primary capitalize") #{item.title}
+                  div(class="flex text-[14px] justify-center")
+                    p(class="pr-[10px] font-[500] text-primary text-[14px] leading-[28px] tracking-[0.04em]") 
+                      if(item.priceNew != item.price)
+                        del(class="text-[#555555] font-[300] mr-[5px]") #{item.priceNew.toLocaleString()} đ
+                      | #{item.price.toLocaleString()} đ  
+
+  //- end product lastest area 
+
+  //- product bestseller 
+  section(class="product-bestseller py-[60px]")
+    div(class="custom-container mx-auto")
+      div(class="pb-[23px] text-center")
+        h2(class="xl:text-[48px] lg:text-[40px] text-[36px] leading-[1.2] text-black font-[700] capitalize") Giày bán chạy nhất
+        p(class="text-[16px] text-[#555555] font-[400] leading-[1.6]") Thương hiệu hàng đầu cuối tuần
+      div(class="relative mt-[30px]")
+        div(class="button-swiper bestSellerSwiper-button-prev text-black border-[1px] border-black absolute z-[2] left-[150px] top-[50%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-transparent shadow-[1px_5px_15px_rgba(167,180,226,0)] lg:flex hidden justify-center items-center transition-all duration-300 ease-in-out hover:text-white hover:bg-primary hover:border-primary cursor-pointer")
+          i(class="fa-solid fa-arrow-left")
+        div(class="swiper bestSellerSwiper")
+          div(class="swiper-wrapper")
+            -for(let i = 0; i < 4; i++)
+              div(class="swiper-slide")
+                div(class="flex items-center justify-center flex-col")
+                  div(class="max-w-[500px]")
+                    img(src="/images/fimg.png" alt="" class="") 
+                  div(class="text-center mt-[25px]")
+                    span(class="text-[10px] leading-[1.1] font-[400] uppercase text-white bg-primary tracking-[0.04em] py-[6px] px-[15px]") Đang bán
+                    h2(class="text-[36px] leading-[1.2] font-[600] mt-[16px] mb-[10px]") 1,500,000 đ
+                    h5(class="text-[20px] font-[400] text-black") Tận hưởng giảm giá 15% cho đơn hàng đầu tiên của bạn
+                    div(class="mt-[27px] relative")
+                      a(href="#" class="inline-block px-[30px] text-[14px] text-white bg-black font-[600] leading-[40px] uppercase relative z-[1] transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Chọn tùy chọn 
+        div(class="button-swiper bestSellerSwiper-button-next text-black border-[1px] border-black absolute z-[2] right-[150px] top-[50%] translate-y-[-50%] w-[50px] h-[50px] rounded-[50%] bg-transparent shadow-[1px_5px_15px_rgba(167,180,226,0)] lg:flex hidden justify-center items-center transition-all duration-300 ease-in-out hover:text-white hover:bg-primary hover:border-primary cursor-pointer")
+            i(class="fa-solid fa-arrow-right")
+  //- end product bestseller 
+
+  //- promotion area
+  section(class="pt-[70px]")
+    div(class="px-[12px]")
+      div(class="flex justify-center flex-wrap pb-[90px] border-b-[2px] border-black")
+        div(class="md:w-[50%] w-[100%] mb-[30px] px-[12px] relative")
+          div(class="min-h-[400px] h-[400px] bg-cover bg-center" style="background-image: url('/images/products-v7-img1.jpg')")
+          div(class="absolute left-[30px] top-[50%] translate-y-[-50%]")
+            span(class="text-[14px] leading-[24px] text-black font-[300] tracking-[0.02em]") Ưu đãi hấp dẫn của Puma
+            h2(class="text-[40px] leading-[50px] text-black font-[600] tracking-[0.02em] mt-[2px]") Giày 2025
+            div(class="mt-[13px] mb-[46px]")
+              p(class="text-[16px] leading-[25px] text-black font-[400] tracking-[0.02em]") 
+                |Kích hoạt các kênh tương tác thông qua 
+                br
+                |mô hình thị trường trọn gói...
+            div(class="")
+              a(href="#" class="text-[18px] leading-[28px] text-black font-[400] tracking-[0.04em] capitalize transition-all duration-300 ease-in-out relative before:content-[''] before:h-[1px] before:absolute before:left-0 before:right-0 before:bottom-[-3px] before:bg-black before:transition-all before:duration-300 before:ease-in-out hover:text-primary hover:before:bg-primary") khám phá mục
+        div(class="md:w-[50%] w-[100%] mb-[30px] px-[12px] h-full")
+          div(class="pt-[95px] pb-[35px] px-[20px] bg-[#ffa247] text-center h-[400px]")
+            h3(class="text-[24px] leading-[34px] text-white font-[500] uppercase mb-[21px]") Hãy nắm bắt cơ hội
+            h2(class="text-[100px] leading-[0.9em] text-white font-[700]") 
+              span(class="text-[30px] font-[500] leading-[40px] inline-block text-right mr-[10px]")
+                |Giảm 
+                br
+                |giá
+              |80%
+            div(class="mt-[11px] mb-[32px]")
+              a(href="#" class="inline-flex items-center justify-center py-[12px] px-[30px] bg-black text-white transition-all duration-300 ease-in-out hover:text-black hover:bg-white") Code: LOVEBITE
+            div(class="")
+              p(class="text-[14px] leading-[24px] text-white font-[300] tracking-[0.04em]") Đừng bỏ lỡ: Mã giảm giá có thể hết hạn sớm.
+        div(class="md:w-[50%] w-[100%] mb-[30px] px-[12px] relative")
+          div(class="min-h-[400px] h-[400px] bg-cover bg-center" style="background-image: url('/images/products-v7-img2.jpg')")
+          div(class="absolute left-[30px] top-[50%] translate-y-[-50%]")
+            span(class="text-[14px] leading-[24px] text-black font-[300] tracking-[0.02em]") Ưu đãi hấp dẫn của Puma
+            h2(class="text-[40px] leading-[50px] text-black font-[600] tracking-[0.02em] mt-[2px]") Giày 2025
+            div(class="mt-[13px] mb-[46px]")
+              p(class="text-[16px] leading-[25px] text-black font-[400] tracking-[0.02em]") 
+                |Kích hoạt các kênh tương tác thông qua 
+                br
+                |mô hình thị trường trọn gói...
+            div(class="")
+              a(href="#" class="text-[18px] leading-[28px] text-black font-[400] tracking-[0.04em] capitalize transition-all duration-300 ease-in-out relative before:content-[''] before:h-[1px] before:absolute before:left-0 before:right-0 before:bottom-[-3px] before:bg-black before:transition-all before:duration-300 before:ease-in-out hover:text-primary hover:before:bg-primary") khám phá mục
+  //- end promotion area
+
+  //- newsletter area
+  section(class="py-[60px]")
+    div(class="custom-container mx-auto")
+      div(class="flex flex-wrap")
+        div(class="flex items-center md:justify-start justify-center px-[12px] lg:w-[calc(100%/3)] md:w-[calc(100%/2)] w-[100%]")
+          div(class="mr-[20px]")
+            img(src="/images/envalop.png", alt="" class="min-w-full")
+          h3(class="text-[30px] leading-[1.35] font-[600] text-black capitalize") 
+            span(class="text-[16px] text-primary block") Đăng ký nhận
+            |bản tin
+        div(class="px-[12px] lg:w-[calc(100%/3)] md:w-[calc(100%/2)] w-[100%] md:mt-0 mt-[20px]")
+          h6(class="text-[18px] font-[400] text-black md:pl-[40px] ml-0 md:text-left text-center relative after:content-[''] after:h-[100%] after:w-[1px] after:absolute after:left-0 after:bg-[#d4d9db] after:top-[50%] after:translate-y-[-50%]") Đăng ký nhận bản tin hàng tuần của chúng tôi để biết tất cả cập nhật mới nhất
+        div(class="px-[12px] lg:w-[calc(100%/3)] md:w-[calc(100%/2)] w-[100%] lg:mt-0 mt-[30px]")
+          form(action="#")
+            div(class="relative")
+              input(class="h-[60px] bg-[#f2f2f2] w-[calc(100%-50px)] py-[10px] pl-[25px] pr-[130px] outline-none cursor-pointer" placeholder="Địa chỉ email")
+              button(class="h-[60px] text-[12px] text-white font-[600] uppercase py-[10px] px-[30px] bg-black absolute top-0 right-0 flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-[#3E3A3A]") Đăng ký 
+  //- end newsletter area
+
+  //- product category
+  section(class="lg:py-[120px] py-[100px] lg:px-[120px] px-[20px] bg-[#F2F2F2]")
+    div(class="container mx-auto max-w-[1710px]")
+      div(class="flex items-center justify-center flex-wrap")
+        div(class="xl:w-[calc(100%/3)] px-[12px]")
+          div(class="xl:max-w-[360px] md:max-w-[560px] xl:mr-[30px] mr-0  xl:text-left text-center")
+            h2(class="xl:text-[48px] lg:text-[40px] text-[36px] leading-[1.2] font-[700] text-black pb-[16px]") Mua sắm theo danh mục
+            p(class="text-[15px] text-[#555555] leading-[1.6] font-[400] xl:text-left text-center") Liên tục cải thiện các thị trường ngành có tác động cao và dài hạn trong khi tập trung vào người dùng. Hiện thực hóa khả năng tương thích ngược...
+            div(class="mt-[37px]")
+              a(href="#" class="inline-block px-[30px] text-[14px] text-white bg-black font-[600] leading-[40px] uppercase relative z-[1] transition-all duration-500 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[#F69C63] before:scale-x-0 before:origin-right before:z-[-1] before:transition-transform before:duration-500 before:ease-in-out hover:before:scale-x-100 hover:before:origin-left hover:text-white") Khám phá thêm
+        div(class="xl:flex-1 w-full flex flex-wrap justify-center")
+          div(class="lg:w-[calc(100%/3)] sm:w-[50%] w-[100%] px-[12px] xl:mt-[0px] mt-[30px]")
+            div(class="p-[20px] bg-[#ffffff]")
+              a(href="#" class="group relative block overflow-hidden") 
+                img(src="/images/categories-v2-img1.jpg", alt="", srcset="" class="min-w-[100%] scale-100 group-hover:scale-110 transition-all duration-500 ease-in-out") 
+                div(class="px-[20px] py-[2px] bg-black absolute top-[10px] left-[10px]") 
+                  span(class="text-white text-[12px] font-[400] leading-[22px] uppercase") 369 mặt hàng
+              div(class="pt-[24px]")
+                h4(class="text-[24px] font-[400] text-black hover:text-primary transition-all duration-300 ease-in-out text-center")
+                  a(href="#" class="text-[20px] capitalize") Giày thể thao
+          div(class="lg:w-[calc(100%/3)] sm:w-[50%] w-[100%] px-[12px] xl:mt-[0px] mt-[30px]")
+            div(class="p-[20px] bg-[#ffffff]")
+              a(href="#" class="group relative block overflow-hidden") 
+                img(src="/images/categories-v2-img1.jpg", alt="", srcset="" class="min-w-[100%] scale-100 group-hover:scale-110 transition-all duration-500 ease-in-out") 
+                div(class="px-[20px] py-[2px] bg-black absolute top-[10px] left-[10px]") 
+                  span(class="text-white text-[12px] font-[400] leading-[22px] uppercase") 369 mặt hàng
+              div(class="pt-[24px]")
+                h4(class="text-[24px] font-[400] text-black hover:text-primary transition-all duration-300 ease-in-out text-center")
+                  a(href="#" class="text-[20px] capitalize") Giày thể thao
+          div(class="lg:w-[calc(100%/3)] sm:w-[50%] w-[100%] px-[12px] xl:mt-[0px] mt-[30px]")
+            div(class="p-[20px] bg-[#ffffff]")
+              a(href="#" class="group relative block overflow-hidden") 
+                img(src="/images/categories-v2-img1.jpg", alt="", srcset="" class="min-w-[100%] scale-100 group-hover:scale-110 transition-all duration-500 ease-in-out") 
+                div(class="px-[20px] py-[2px] bg-black absolute top-[10px] left-[10px]") 
+                  span(class="text-white text-[12px] font-[400] leading-[22px] uppercase") 369 mặt hàng
+              div(class="pt-[24px]")
+                h4(class="text-[24px] font-[400] text-black hover:text-primary transition-all duration-300 ease-in-out text-center")
+                  a(href="#" class="text-[20px] capitalize") Giày thể thao
+  //- end product category
+
+  //- area-finfo
+  section(class="area-finfo lg:pt-[120px] md:pt-[100px] pt-[80px] lg:mb-[60px] md:mb-[50px] mb-[40px]")
+    div(class="custom-container")
+      div(class="grid lg:grid-cols-2 grid-cols-1 gap-[30px]")
+        div(class="group p-[30px] border-[1px] border-[#1a1a1a] relative before:content-[''] before:w-[1px] before:h-0 before:absolute before:top-0 before:left-[-1px] before:bg-primary hover:before:h-[100%] before:transition-all before:duration-700 before:ease-in-out after:content-[''] after:w-[1px] after:h-0 after:absolute after:bottom-0 after:right-[-1px] after:bg-primary hover:after:h-[100%] after:transition-all after:duration-700 after:ease-in-out")
+          div(class="absolute top-[-1px] left-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="absolute bottom-[-1px] right-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="flex")
+            div(class="mr-[20px]")
+              img(src="/images/f-icon-1.png" alt="" class="min-w-[40px] max-w-[40px] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]")
+            div(class="")
+              a(href="#" class="mb-[10px] block")
+                h4(class="font-[400] text-[24px] text-black capitalize hover:text-primary transition-all duration-300 ease-in-out") Thanh toán an toàn
+              p(class="text-[#797979]") Mỗi người đều khác nhau, đó là lý do tại sao người ta đưa ra những phong cách khác nhau cho từng cơ thể.
+        div(class="group p-[30px] border-[1px] border-[#1a1a1a] relative before:content-[''] before:w-[1px] before:h-0 before:absolute before:top-0 before:left-[-1px] before:bg-primary hover:before:h-[100%] before:transition-all before:duration-700 before:ease-in-out after:content-[''] after:w-[1px] after:h-0 after:absolute after:bottom-0 after:right-[-1px] after:bg-primary hover:after:h-[100%] after:transition-all after:duration-700 after:ease-in-out")
+          div(class="absolute top-[-1px] left-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="absolute bottom-[-1px] right-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="flex")
+            div(class="mr-[20px]")
+              img(src="/images/f-icon-2.png" alt="" class="min-w-[40px] max-w-[40px] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]")
+            div(class="")
+              a(href="#" class="mb-[10px] block")
+                h4(class="font-[400] text-[24px] text-black capitalize hover:text-primary transition-all duration-300 ease-in-out") Giao hàng nhanh 27/7
+              p(class="text-[#797979]") Mỗi người đều khác nhau, đó là lý do tại sao người ta đưa ra những phong cách khác nhau cho từng cơ thể.
+        div(class="group p-[30px] border-[1px] border-[#1a1a1a] relative before:content-[''] before:w-[1px] before:h-0 before:absolute before:top-0 before:left-[-1px] before:bg-primary hover:before:h-[100%] before:transition-all before:duration-700 before:ease-in-out after:content-[''] after:w-[1px] after:h-0 after:absolute after:bottom-0 after:right-[-1px] after:bg-primary hover:after:h-[100%] after:transition-all after:duration-700 after:ease-in-out")
+          div(class="absolute top-[-1px] left-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="absolute bottom-[-1px] right-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="flex")
+            div(class="mr-[20px]")
+              img(src="/images/f-icon-3.png" alt="" class="min-w-[40px] max-w-[40px] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]")
+            div(class="")
+              a(href="#" class="mb-[10px] block")
+                h4(class="font-[400] text-[24px] text-black capitalize hover:text-primary transition-all duration-300 ease-in-out") Trả lại & Hoàn tiền
+              p(class="text-[#797979]") Mỗi người đều khác nhau, đó là lý do tại sao người ta đưa ra những phong cách khác nhau cho từng cơ thể.
+        div(class="group p-[30px] border-[1px] border-[#1a1a1a] relative before:content-[''] before:w-[1px] before:h-0 before:absolute before:top-0 before:left-[-1px] before:bg-primary hover:before:h-[100%] before:transition-all before:duration-700 before:ease-in-out after:content-[''] after:w-[1px] after:h-0 after:absolute after:bottom-0 after:right-[-1px] after:bg-primary hover:after:h-[100%] after:transition-all after:duration-700 after:ease-in-out")
+          div(class="absolute top-[-1px] left-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="absolute bottom-[-1px] right-0 w-0 h-[1px] bg-primary group-hover:w-[100%] transition-all duration-700 ease-in-out")
+          div(class="flex")
+            div(class="mr-[20px]")
+              img(src="/images/f-icon-4.png" alt="" class="min-w-[40px] max-w-[40px] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]")
+            div(class="")
+              a(href="#" class="mb-[10px] block")
+                h4(class="font-[400] text-[24px] text-black capitalize hover:text-primary transition-all duration-300 ease-in-out") Hỗ trợ chất lượng
+              p(class="text-[#797979]") Mỗi người đều khác nhau, đó là lý do tại sao người ta đưa ra những phong cách khác nhau cho từng cơ thể.
+  //- end area-finfo
+
+  //-review area
+  section(class="py-[60px] review-area")
+    div(class="custom-container mx-auto")
+      div(class="")
+        div(class="pb-[23px] text-center")
+          h2(class="xl:text-[48px] lg:text-[40px] text-[36px] leading-[1.2] text-black font-[700] capitalize") Khách hàng nói gì
+          p(class="text-[16px] text-[#555555] font-[400] leading-[1.6]") Hơn 10000 đánh giá
+        div(class="relative pb-[50px]")
+          div(class="button-swiper reviewSwiper-button-prev text-black absolute z-[2] left-[calc(50%-55px)] bottom-0 translate-x-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white flex justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+            i(class="fa-solid fa-arrow-left")
+          div(class="swiper reviewSwiper")
+            div(class="swiper-wrapper")
+              -for(let i = 0; i < 6; i++)  
+                div(class="swiper-slide px-[20px] py-[50px]")
+                  div(class="p-[50px] relative before:content-[''] before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:bg-[#ffffff] before:shadow-[2.5px_9.722px_30px_0px_rgba(121,121,121,0.12)] before:skew-y-[-5deg] before:rounded-[50px] before:z-[-1]")
+                    div(class="w-[100px] h-[100px] relative")
+                      div(class="w-[100px] h-[100px] rounded-[50%] overflow-hidden")
+                        img(src="/images/testimonial-v1-3.png", alt="", srcset="")
+                      span(class="w-[30px] h-[30px] text-primary flex items-center justify-center absolute right-[5px] bottom-[-5px] before:content-[''] before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:bg-[#ffffff] before:shadow-[0px_7px_40px_0px_rgba(0,0,0,0.21)] before:skew-y-[-7deg] before:rounded-[5px]")
+                        i(class="fa-solid fa-quote-right relative z-[2]")
+                    div(class="")
+                      p(class="pt-[40px] pb-[25px] text-[15px] text-[#555555] font-[400]") “Nhanh chóng khai thác tư duy đột phá, tác động cao, lâu dài, dẫn đầu toàn cầu. Nhanh chóng kết nối mạng lưới dịch vụ khách hàng doanh nghiệp có tính hiệp lực”
+                      h4(class="text-[24px] font-[400] text-black capitalize") Nguyễn Văn A 
+                      span(class="text-[15px] text-[#555555] font-[400]") Kỹ sư web
+          div(class="button-swiper reviewSwiper-button-next text-black absolute z-[2] left-[calc(50%+15px)] bottom-0 translate-x-[-50%] w-[50px] h-[50px] rounded-[50%] bg-white flex justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+            i(class="fa-solid fa-arrow-right")
+  //-end review area
+
+  //-blog area
+  section(class="pt-[60px] pb-[120px] blog-area")
+    div(class="custom-container mx-auto")
+      div(class="")
+        div(class="pb-[23px] text-center")
+          h2(class="xl:text-[48px] lg:text-[40px] text-[36px] leading-[1.2] text-black font-[700] capitalize") Tin tức mới nhất
+          p(class="text-[16px] text-[#555555] font-[400] leading-[1.6]") Cập nhật cuối tuần
+        div(class="flex flex-wrap justify-center")
+          -for(let i=0; i<3; i++)
+            div(class="blog-area__item lg:w-[calc(100%/3)] sm:w-[50%] w-full sm:px-[12px] px-[0] mt-[30px]")
+              a(href="#" class="blog-area__img block overflow-hidden relative before:content-[''] before:w-0 before:h-0 before:rounded-[50%] before:absolute before:top-[50%] before:left-[50%] before:translate-x-[-50%] before:translate-y-[-50%] before:bg-[rgba(255,255,255,0.3)] before:opacity-0")
+                img(src="/images/blog-v3-1.jpg", alt="", srcset="" class="w-full object-cover")
+              div(class="pt-[24px] text-center")
+                span(class="text-[14px] leading-[24px] font-[400] text-[#555555] tracking-[0.04em] capitalize") phong cách Vendora
+                h4(class="mt-[8px]") 
+                  a(href="#" class="text-black md:text-[22px] text-[20px] transition-all duration-300 ease-in-out hover:text-primary") Một phong cách hoàn hảo với đôi giày thời trang của chúng tôi
+                div(class="mt-[14px]")
+                  a(href="#" class="text-[16px] leading-[30px] font-[400] capitalize text-[#555555] underline transition-all duration-300 ease-in-out hover:text-primary") Đọc thêm  
+  //-end blog area
+
+  //- //- featured-area
+  //- section(class="featured-area md:py-[60px] py-[40px]")
+  //-   div(class="custom-container mx-auto")
+  //-     div(class="md:pb-[53px] pb-[35px]")  
+  //-       p(class="text-[13px] text-[#797979] uppercase pb-[16px]") Giá cả phải chăng 
+  //-       h2(class="text-[27px] text-black font-[600] uppercase mt-[-8px]")  sản phẩm nổi bật 
+  //-     div(class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-x-[24px] gap-x-[10px] gap-y-[30px]")
+  //-       each item in productFeatured
+  //-         div(class="group")
+  //-           div(class="relative before:content-[''] before:h-[1px] before:bg-white before:absolute before:top-[calc(50%+30px)] before:right-0 before:w-[0] before:z-[3] group-hover:before:w-[60%] before:transition-all before:duration-500 before:ease-linear after:content-[''] after:w-0 group-hover:after:w-[60%] after:h-[1px] after:bg-white after:absolute after:top-[calc(50%-30px)] after:left-0 after:transition-all after:duration-500 after:ease-linear after:z-[0]")
+  //-             div(class="absolute sm:right-[16px] right-[7px] sm:top-[16px] top-[7px] z-[10]")
+  //-               span(class="sm:text-[11px] text-[10px] text-white bg-[#fa323c] font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[7px] leading-[18px]") New
+  //-             if(item.discountPercentage != "0")
+  //-               div(class="absolute sm:right-[16px] right-[7px] sm:top-[40px] top-[7px] z-[10]")
+  //-                 span(class="sm:text-[11px] text-[10px] text-white bg-[#F79A3F] font-[400] rounded-[50px] uppercase inline-block tracking-[0.7px] whitespace-normal px-[7px] leading-[18px]") -#{item.discountPercentage}%
+  //-             a(href="#" class="bloc min-w-full")
+  //-               img(src=item.thumbnail alt=item.title class="min-w-full h-auto aspect-[5/6] object-cover opacity-100 visible transition-all duration-500 ease-linear") 
+  //-             div(class="lg:block hidden absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all duration-500 ease-linear z-[2] opacity-0 group-hover:opacity-[1]")  
+  //-               ul(class="flex") 
+  //-                 li(class="icon relative") 
+  //-                   a(href="#" class="group/item h-[30px] w-[30px] text-[12px] text-black rounded-[30px] m-[2px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+  //-                     i(class="fa-regular fa-eye")
+  //-                     span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[75px] py-[4px] px-[8px] inline-block text-white absolute top-[-23px] left-[50%] translate-x-[-50%] translate-y-[-15px] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-y-[-5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[50%] before:top-[80%] before:translate-y-0 before:translate-x-[-50%] before:rotate-[45deg]") Xem nhanh
+  //-                 li(class="icon relative") 
+  //-                   a(href="#" class="group/item h-[30px] w-[30px] text-[12px] text-black rounded-[30px] m-[2px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+  //-                     i(class="fa-regular fa-heart") 
+  //-                     span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[150px] py-[4px] px-[8px] inline-block text-white absolute top-[-23px] left-[50%] translate-x-[-50%] translate-y-[-15px] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-y-[-5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[50%] before:top-[80%] before:translate-y-0 before:translate-x-[-50%] before:rotate-[45deg]") Danh sách mong muốn      
+  //-                 li(class="icon relative") 
+  //-                   a(href="#" class="group/item h-[30px] w-[30px] text-[12px] text-black rounded-[30px] m-[2px] bg-white flex justify-center items-center hover:bg-[#FE5A00] hover:text-white transition-all duration-500 ease-linear")
+  //-                     i(class="fa-solid fa-cart-shopping") 
+  //-                     span(class="uppercase text-[10px] text-[400] text-center bg-black min-w-[75px] py-[4px] px-[8px] inline-block text-white absolute top-[-23px] left-[50%] translate-x-[-50%] translate-y-[-15px] opacity-0 invisible group-hover/item:opacity-[1] group-hover/item:translate-y-[-5px] group-hover/item:visible transition-all duration-500 ease-lineartbefore:content-[''] before:w-[8px] before:h-[8px] before:bg-black before:absolute before:left-[50%] before:top-[80%] before:translate-y-0 before:translate-x-[-50%] before:rotate-[45deg]") Giỏ hàng      
+  //-           div(class="text-center")
+  //-             div(class="pt-[12px] sm:text-[14px] text-[11px] text-[#FF5A00]")
+  //-               i(class="fa-solid fa-star")                              
+  //-               i(class="fa-solid fa-star")                              
+  //-               i(class="fa-solid fa-star")                              
+  //-               i(class="fa-solid fa-star")                              
+  //-               i(class="fa-solid fa-star text-[#B0B5BB]")     
+  //-             h5(class="pt-[4px] pb-[5px]")       
+  //-               a(href="#" class="text-[14px] font-[400] transition-all duration-500 ease-linear text-black hover:text-[#fa323c]") #{item.title}
+  //-             div(class="flex text-[14px] justify-center")
+  //-               p(class="pr-[10px] font-[600]") #{item.priceNew.toLocaleString()} đ
+  //-               if(item.priceNew != item.price)
+  //-                 span(class="text-[#888888]") 
+  //-                   del(class="") #{item.price.toLocaleString()} đ
+  //- //- end featured-area

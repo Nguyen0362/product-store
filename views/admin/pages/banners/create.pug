@@ -1,0 +1,76 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug
+
+block main
+    +breadcrumb(
+        'fa-solid fa-plus',
+        pageTitle,
+        [
+            {label: 'Banner', href: `/${prefixAdmin}/banners`, icon: 'fa-solid fa-image'},
+            {label: 'Thêm mới banner'}
+        ]
+    )
+
+    div(class="banner-create rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Thêm mới 
+      div(class="mt-[50px]")
+        form(
+          action=`/${prefixAdmin}/banners/create`
+          method="POST"
+          enctype="multipart/form-data"
+        ) 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="title" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") 
+              |Tiêu đề
+            div(class="flex-1")
+              input(type="text" name="title" id="title" class="w-full outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="subtitle" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") 
+              |Phụ đề
+            div(class="flex-1")
+              input(type="text" name="subtitle" id="subtitle" class="w-full outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") Danh mục
+            div(class="flex-1")
+              select(name="category_id" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 px-[12px] py-[10px] mx-[5px] w-full outline-none")
+                each item in listBannerCategory
+                  option(value=item.id) #{item.title}
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") Vị trí
+            div(class="flex-1")
+              select(name="position" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 px-[12px] py-[10px] mx-[5px] w-full outline-none")
+                each val, key in bannerPosition
+                  option(value=key) #{val}
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="button_text" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") 
+              |Tên nút
+            div(class="flex-1")
+              input(type="text" name="button_text" id="button_text" class="w-full outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="link" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") Liên kết
+            div(class="flex-1")
+              input(type="text" name="link" id="link" class="w-full outline-none text-[#495057] py-[6px] px-[12px] border border-[#ccc] rounded-[3px] transition-all duration-150 ease-in-out focus:shadow-[0_0_0_0.2rem_rgba(0,123,255,0.25)] focus:border-[#4099ff]") 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="desc" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]") Mô tả
+            div(class="flex-1")
+              textarea(name="description" id="desc" textarea-mce) 
+          div(class="flex items-center flex-wrap mb-[19px]")
+            label(for="" class="py-[6px] pr-[15px] text-[16px] sm:w-[17%] w-full font-[500]" id="drop-zone") Ảnh banner
+            div(class="min-w-[200px]")
+              input(type="file" class="filepond" name="thumbnail" multiple)
+          div(class="flex items-center mb-[19px]")
+            div(class="sm:w-[17%] w-0")
+            div(class="flex")
+              div(class="mr-[20px]")
+                input(type="radio" name="status" id="active" class="mr-[5px]" value="active" checked) 
+                label(for="active" class="font-[500]") Hoạt động
+              div(class="")
+                input(type="radio" name="status" id="inactive" class="mr-[5px]" value="inactive") 
+                label(for="inactive" class="font-[500]") Không hoạt động
+          div(class="flex sm:justify-start justify-center")
+            div(class="sm:w-[17%] w-0")
+            button(type="submit" class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") Tạo mới
+
+
+            

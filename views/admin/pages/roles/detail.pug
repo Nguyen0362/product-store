@@ -1,0 +1,23 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug
+
+block main
+  +breadcrumb(
+        'fa-solid fa-info',
+        pageTitle,
+        [
+            {label: "Nhóm quyền", href: `/${prefixAdmin}/roles`, icon: 'fa-solid fa-user-group'},
+            {label: pageTitle, href: `/${prefixAdmin}/roles/detail`}
+        ]
+    )
+
+  div(class="product-list min-h-[450px] rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+    div(class="")
+      h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Chi tiết nhóm quyền
+    div(class="mt-[50px]")
+      div(class="text-[18px]")
+        span(class="") Tên nhóm quyền:
+        span(class="ml-[10px] font-[600]") #{roles.title}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Mô tả ngắn:
+        span(class="ml-[10px] font-[600]") #{roles.description}

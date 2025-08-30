@@ -1,0 +1,50 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug
+
+block main
+  +breadcrumb(
+    'fa-solid fa-info',
+    pageTitle,
+    [
+        {label: 'Banner', href: `/${prefixAdmin}/banners`, icon: 'fa-solid fa-image'},
+        {label: pageTitle}
+    ]
+  )
+
+  div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+    div(class="")
+      h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Chi tiết banner
+    div(class="mt-[50px]")
+      div(class="text-[18px]")
+        span(class="") Tiêu đề:
+        span(class="ml-[10px] font-[600]") #{banner.title}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Phụ đề:
+        span(class="ml-[10px] font-[600]") #{banner.subtitle}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Danh mục:
+        span(class="ml-[10px] font-[600]") #{banner.bannerCategory.title}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Vị trí:
+        span(class="ml-[10px] font-[600]") #{banner.position}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Tên nút:
+        span(class="ml-[10px] font-[600]") #{banner.button_text}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Liên kết:
+        span(class="ml-[10px] font-[600] text-[#1D89E2]") 
+          a(href=banner.link) #{banner.link}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Trạng thái:
+        span(class="ml-[10px] font-[600] bg-opacity-20 px-[12px] pt-[3px] pb-[6px] rounded-[3px] mr-[5px] text-[14px] " + (banner.status == "active" ? "text-[#2ED8B6] bg-[#2ED8B6]" : "text-[#FF5370] bg-[#FF5370]")) #{banner.status == "active" ? "Hoạt động" : "Dừng hoạt động"}
+      div(class="text-[18px] mt-[20px] items-start")
+        span(class="mb-[10px] inline-block") Ảnh banner:
+        div(class="flex")
+          each link in banner.thumbnail
+            img(src=link alt=banner.title class="w-[120px] h-[60px] mr-[10px] object-cover") 
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Vị trí:
+        span(class="ml-[10px] font-[600]") #{banner.position}
+      div(class="text-[18px] mt-[20px] flex flex-wrap")
+        span(class="mr-[10px]") Mô tả :
+        span(class="font-[600]") !{banner.description}

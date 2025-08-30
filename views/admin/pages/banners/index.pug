@@ -1,0 +1,140 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug 
+include ../../mixins/box-filter.pug 
+
+block main 
+    +breadcrumb(
+        'fa-solid fa-image',
+        pageTitle,
+        [
+            {label: pageTitle, href: `/${prefixAdmin}/banners`, icon: 'fa-solid fa-image'}
+        ]
+    )
+
+    //- filter and search
+    div(class="rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+        div(class="")
+            h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Bộ lọc và tìm kiếm
+        div(class="mt-[50px] flex items-center justify-between flex-wrap")
+            div(class="flex items-center md:flex-nowrap flex-wrap xl:w-auto w-full")
+              div(class="xl:w-auto md:w-[50%] w-[100%] md:mt-0 mt-[30px] md:order-1 order-2")
+                  +box-filter([
+                  {
+                    label: "Tất cả",
+                    value: ""
+                  },
+                  {
+                    label: "Hoạt động",
+                    value: "active"
+                  },
+                  {
+                    label: "Dừng hoạt động",
+                    value: "inactive"
+                  }
+                ]) 
+              div(class="relative md:ml-[30px] ml-0 xl:w-auto md:w-[50%] w-[100%] md:order-2 order-1")
+                include ../../partials/form-search.pug
+    //- End filter and search
+
+    //- list
+    div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Danh sách
+      div(class="mt-[50px]")
+        if(role.permissions.includes("banners_create"))
+          div(class="flex justify-end mb-[30px]")
+            a(href=`/${prefixAdmin}/banners/create` class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") 
+              i(class="fa-solid fa-plus")
+              span(class="ml-[5px]") Thêm mới 
+        div(class="flex items-center justify-between flex-wrap xl:w-auto w-full")
+          div(class="md:w-auto w-full text-center")
+            | Hiển thị
+            select(name="" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] mx-[5px] w-[75px] outline-none" show-select) 
+              option(value="10") 10
+              option(value="25") 25
+              option(value="50") 50
+              option(value="100") 100
+            | sản phẩm
+          if(role.permissions.includes("banners_edit"))
+            div(class="md:ml-[40px] ml-0 md:mt-0 mt-[20px] md:w-auto w-full")
+              form(form-change-multi data-patch=`/${prefixAdmin}/banners/change-multi`) 
+                div(class="flex items-center justify-center")
+                  select(name="status" class="bg-white border-[1px] border-[#4099ff] border-t-0 border-l-0 border-r-0 sm:px-[12px] px-[8px] sm:py-[10px] py-[6px] sm:w-[250px] w-[180px] outline-none" show-select)  
+                    option(value="active") Hoạt động
+                    option(value="inactive") Dừng hoạt động
+                    option(value="delete") Xóa  
+                  div(class="bg-[#4099ff] rounded-tr-[5px] rounded-br-[5px] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]")
+                    button(class="text-white font-[700] sm:px-[12px] px-[8px] sm:py-[10px] py-[6px]" type="submit") Áp dụng
+        div(class="mt-[30px] overflow-x-auto")
+          table(class="w-full")
+            thead(class="bg-[#4099ff] bg-opacity-15")
+              tr(class="")
+                th(class="rounded-tl-[3px] p-[8px]")
+                th(class="lg:p-[8px] p-[5px] font-[700]") STT 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Hình ảnh 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Tiêu đề 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Danh mục
+                th(class="lg:p-[8px] p-[5px] font-[700]") Liên kết
+                th(class="lg:p-[8px] p-[5px] font-[700]") Vị trí 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Trạng thái
+                th(class="lg:p-[8px] p-[5px] font-[700] rounded-tr-[3px]") Hành động 
+            tbody 
+              each item, index in banners
+                tr  
+                  td(class="lg:p-[8px] p-[5px]")
+                    input(type="checkbox" input-change=item.id) 
+                  td(class="lg:p-[8px] p-[5px]") #{index + 1}
+                  td(class="lg:p-[8px] p-[5px]")
+                    div(class="lightgallery lg:w-[120px] lg:h-[60px] w-[90px] h-[45px]")
+                      if item.thumbnail.length > 0
+                        a(href=item.thumbnail[0])
+                          img(src=item.thumbnail[0], alt=item.title, class="w-full h-full object-cover")
+                      if item.thumbnail.length > 1
+                        each link, idx in item.thumbnail
+                          if idx > 0
+                            a(href=link class="hidden")
+                              img(src=link, alt=item.title, class="w-full h-full object-cover")
+                  td(class="lg:p-[8px] p-[5px] min-w-[150px] max-w-[150px]") #{item.title}
+                  td(class="lg:p-[8px] p-[5px]") #{item.bannerCategory.title}
+                  td(class="lg:p-[8px] p-[5px]") 
+                    a(href=item.link class="text-[#1D89E2]") #{item.link}
+                  td(class="lg:p-[8px] p-[5px]") #{item.position}
+                  td(class="lg:p-[8px] p-[5px]") 
+                    if(role.permissions.includes("banners_edit"))
+                      if(item.status == "active")
+                          button(class="text-[#2ED8B6] bg-[#2ED8B6] bg-opacity-20 w-[100px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30" button-change-status="inactive" item-id=item.id data-patch=`/${prefixAdmin}/banners/change-status`) Hoạt động
+                      else 
+                        button(class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[130px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600] hover:bg-opacity-30" button-change-status="active" item-id=item.id data-patch=`/${prefixAdmin}/banners/change-status`) Dừng hoạt động
+                    else 
+                      if(item.status == "active")
+                        span(class="inline-flex justify-center items-center text-[#2ED8B6] bg-[#2ED8B6] bg-opacity-20 w-[100px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600]") Hoạt động
+                      else    
+                        span(class="inline-flex justify-center items-center text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[130px] h-[35px] rounded-[3px] mr-[5px] text-[14px] font-[600]") Dừng hoạt động
+                  td(class="lg:p-[8px] p-[5px] w-[150px]") 
+                    div(class="flex")
+                      a(href=`/${prefixAdmin}/banners/detail/${item.id}` class="text-[#17A2B8] bg-[#17A2B8] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                        i(class="fa-solid fa-info")
+                      if(role.permissions.includes("banners_edit"))
+                        a(href=`/${prefixAdmin}/banners/edit/${item.id}` class="text-[#FFB64D] bg-[#FFB64D] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                          i(class="fa-solid fa-pen-to-square")
+                      if(role.permissions.includes("banners_delete"))
+                        button(data-patch=`/${prefixAdmin}/banners/delete` button-id=item.id button-delete class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                            i(class="fa-solid fa-trash-can")
+            tfoot()
+              tr  
+                td(class="text-center pt-[30px]" colspan="10")
+                  ul(class="block") 
+                    li(class="text-center")
+                      if(currentPage > 1)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 rounded-tl- [4px] rounded-bl-[4px] hover:bg-[#EEEEEE]" button-pagination=1) 
+                          i(class="fa-solid fa-angles-left")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage-1) 
+                          i(class="fa-solid fa-angle-left")
+                      - for(var i = 1; i <= totalPage; i++)
+                          button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] font-[600] hover:bg-[#EEEEEE]" button-pagination=i) #{i}
+                      if(currentPage < totalPage)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage+1) 
+                          i(class="fa-solid fa-angle-right")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] rounded-tr-[4px] rounded-br-[4px] hover:bg-[#EEEEEE]" button-pagination=totalPage) 
+                          i(class="fa-solid fa-angles-right")
+    //- End list

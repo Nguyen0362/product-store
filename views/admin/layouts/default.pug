@@ -4,6 +4,10 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")
+    link(rel="icon" href="/admin/images/logo-tab.ico" type="image/x-icon")
+    link(href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet")
+    link(href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css")
     link(rel="stylesheet" href="/admin/css/styles.css")
     script(src="https://cdn.tailwindcss.com")
     title #{pageTitle}
@@ -21,11 +25,25 @@ html(lang="en")
     .body
       include ../partials/sider.pug 
 
-      div(class="main relative lg:left-[250px] left-[0] lg:w-[calc(100%-250px)] w-full bg-[#F2F7FB] md:px-[20px] px-[10px] pt-[35px] pb-[40px] transition-all duration-500 ease-in-out")
+      div(class="main relative lg:left-[250px] left-[0] lg:w-[calc(100%-250px)] w-full min-h-[100vh] bg-[#F2F7FB] md:px-[20px] px-[10px] pt-[35px] pb-[40px] transition-all duration-500 ease-in-out")
           block main
+    
+    include ../partials/boxChat.pug
 
+    script(src="https://cdn.amcharts.com/lib/5/index.js")
+    script(src="https://cdn.amcharts.com/lib/5/xy.js")
+    script(src="https://cdn.amcharts.com/lib/5/themes/Animated.js")
     script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+    script(src="https://unpkg.com/filepond/dist/filepond.js") 
+    script(src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js")
+    script(src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.umd.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.umd.js")
+    script(src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.umd.js")
+    script(src="/admin/js/amCharts.js")
     script(src= "/tinymce/tinymce.min.js")
     script(src= "/admin/js/tinymce-config.js")
-    script(src="/admin/js/script.js")
+    script(src="/socket.io/socket.io.js") 
+    script(type="module" src="/admin/js/initSocket.js")
+    script(type="module" src="/admin/js/script.js")
+    script(type="module" src="/admin/js/socket.js")
         

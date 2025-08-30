@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")
+    link(rel="icon" href="/admin/images/logo-tab.ico" type="image/x-icon")
+    link(rel="stylesheet" href="/admin/css/styles.css")
+    script(src="https://cdn.tailwindcss.com")
+    title #{pageTitle}
+  body 
+    if messages.success
+      script.
+        const flashSuccess = !{JSON.stringify(messages.success)};
+    if messages.error
+      script.
+        const flashError = !{JSON.stringify(messages.error)};
+
+    block main
+
+    script(src="https://cdn.amcharts.com/lib/5/index.js")
+    script(src="https://cdn.amcharts.com/lib/5/xy.js")
+    script(src="https://cdn.amcharts.com/lib/5/themes/Animated.js")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+    script(src="/admin/js/amCharts.js")
+    script(src= "/tinymce/tinymce.min.js")
+    script(src= "/admin/js/tinymce-config.js")
+    script(src="/socket.io/socket.io.js") 
+    script(type="module" src="/admin/js/script.js")
+        
+        

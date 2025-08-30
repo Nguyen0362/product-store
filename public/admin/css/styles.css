@@ -14,6 +14,35 @@ a {
     text-decoration: none !important;
 }
 
+/* header  */
+@keyframes not-link {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.header .badge{
+    animation: not-link 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+/* end header  */
+
+/* sider  */
+.sider .menu-item.active{
+    color: white;
+    border-left: 3px solid #42A5F5;
+    background-color: #1D2531;
+}
+/* end sider  */
+
 /* product-list */
 .product-list table tbody tr:nth-child(2n - 1){
     background-color: #F6F7F9;
@@ -29,3 +58,83 @@ a {
     pointer-events: none;
 }
 /* End product-list */
+
+/* login area  */
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+
+.login-area .floating-input ~ label.fill {
+    top: -14px;
+    font-size: 12px;
+}
+
+.login-area .checkbox-show input[type="checkbox"]:checked + label{
+    animation: ripple 0.3s linear forwards;
+}
+
+.login-area .checkbox-show label i{
+    opacity: 0;
+    transform: scale(3) rotateZ(-20deg);
+}
+
+.login-area .checkbox-show input[type="checkbox"]:checked + label i{
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.login-area input:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  box-shadow: 0 0 0 1000px white inset !important;
+}
+/* end login area  */
+
+/* chat */
+.chat-list .chat-list-main .inner-status[status="online"] {
+    background-color: #28A745;
+}
+
+.box-typing .inner-dots span{
+    animation: blink 1.5s infinite;
+}
+
+.box-typing .inner-dots span:nth-child(2){
+    animation-delay: 0.2s;
+}
+
+.box-typing .inner-dots span:nth-child(3){
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+/* end chat */
+
+/* banner */
+.banner-create .image-preview {
+    height: auto;
+    padding: 0;
+}
+
+.banner-create .image-preview .image-preview-item{
+    aspect-ratio: 3 / 1;
+    height: auto;
+}
+
+/* end banner */

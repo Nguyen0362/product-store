@@ -1,0 +1,44 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug
+
+block main
+  +breadcrumb(
+    'fa-solid fa-info',
+    pageTitle,
+    [
+        {label: 'Sản phẩm', href: `/${prefixAdmin}/products`, icon: 'fa-solid fa-box-open'},
+        {label: pageTitle, href: `/${prefixAdmin}/products/edit`}
+    ]
+  )
+
+  div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+    div(class="")
+      h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Chi tiết sản phẩm
+    div(class="mt-[50px]")
+      div(class="text-[18px]")
+        span(class="") Tên sản phẩm:
+        span(class="ml-[10px] font-[600]") #{product.title}
+      div(class="text-[18px]")
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Giá:
+        span(class="ml-[10px] font-[600]") #{product.price.toLocaleString()} VND
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Giảm giá:
+        span(class="ml-[10px] font-[600]") #{product.discountPercentage}%
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Trạng thái:
+        span(class="ml-[10px] font-[600] bg-opacity-20 px-[12px] pt-[3px] pb-[6px] rounded-[3px] mr-[5px] text-[14px] " + (product.status == "active" ? "text-[#2ED8B6] bg-[#2ED8B6]" : "text-[#FF5370] bg-[#FF5370]")) #{product.status == "active" ? "Hoạt động" : "Dừng hoạt động"}
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Còn lại:
+        span(class="ml-[10px] font-[600]") #{product.quantity}
+      div(class="text-[18px] mt-[20px] items-start")
+        span(class="mb-[10px] inline-block") Ảnh banner:
+        div(class="flex")
+          each link in product.thumbnail
+            img(src=link alt=product.title class="w-[150px] aspect-square mr-[10px] object-cover")  
+      div(class="text-[18px] mt-[20px]")
+        span(class="") Vị trí:
+        span(class="ml-[10px] font-[600]") #{product.position}
+      div(class="text-[18px] mt-[20px]")
+        span(class="w-full inline-block mr-[10px]") Mô tả sản phẩm:
+        span(class="") !{product.description}

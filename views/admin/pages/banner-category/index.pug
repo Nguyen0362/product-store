@@ -1,0 +1,61 @@
+extends ../../layouts/default.pug 
+include ../../mixins/breadcrumb.pug 
+include ../../mixins/box-filter.pug 
+
+block main 
+    +breadcrumb(
+        'fa-solid fa-image',
+        pageTitle,
+        [
+            {label: pageTitle}
+        ]
+    )
+
+    //- list
+    div(class="product-list rounded-[5px] bg-white p-[20px] mt-[40px] mx-[15px]" style="box-shadow: 0 0 5px 0 rgba(43, 43, 43, 0.1), 0 11px 6px -7px rgba(43, 43, 43, 0.1);")
+      div(class="")
+        h2(class="text-[#333] text-[15px] font-[700] relative before:content-[''] before:absolute before:w-[60px] before:h-[1px] before:left-0 before:bg-[#d2d2d2] before:bottom-[-20px]") Danh sách
+      div(class="mt-[50px]")
+        if(role.permissions.includes("products_create"))
+          div(class="flex justify-end mb-[30px]")
+            a(href=`/${prefixAdmin}/banner-category/create` class="text-white px-[12px] py-[10px] bg-[#4099ff] rounded-[5px] font-[600] transition-all duration-300 ease-in-out hover:bg-[#73B4FF]") 
+              i(class="fa-solid fa-plus")
+              span(class="ml-[5px]") Thêm mới 
+        div(class="mt-[30px] overflow-x-auto")
+          table(class="min-w-[500px] w-full")
+            thead(class="bg-[#4099ff] bg-opacity-15")
+              tr(class="")
+                th(class="lg:p-[8px] p-[5px] font-[700]") STT 
+                th(class="lg:p-[8px] p-[5px] font-[700]") Tiêu đề 
+                th(class="lg:p-[8px] p-[5px] font-[700] rounded-tr-[3px]") Hành động 
+            tbody 
+              each item, index in listBannerCategory
+                tr 
+                  td(class="lg:p-[8px] p-[5px]") #{index + 1}
+                  td(class="lg:p-[8px] p-[5px] min-w-[150px] max-w-[150px]") #{item.title}
+                  td(class="lg:p-[8px] p-[5px] w-[150px]") 
+                    div(class="flex")
+                      a(href=`/${prefixAdmin}/banner-category/detail/${item.id}` class="text-[#17A2B8] bg-[#17A2B8] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                        i(class="fa-solid fa-info")
+                      a(href=`/${prefixAdmin}/banner-category/edit/${item.id}` class="text-[#FFB64D] bg-[#FFB64D] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] mr-[5px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                        i(class="fa-solid fa-pen-to-square")
+                      button(data-patch=`/${prefixAdmin}/banner-category/delete/${item.id}` button-id=item.id button-delete class="text-[#FF5370] bg-[#FF5370] bg-opacity-20 w-[35px] h-[30px] rounded-[3px] inline-flex justify-center items-center hover:bg-opacity-30 mt-[5px]")
+                          i(class="fa-solid fa-trash-can")
+            tfoot()
+              tr  
+                td(class="text-center pt-[30px]" colspan="10")
+                  ul(class="block") 
+                    li(class="text-center")
+                      if(currentPage > 1)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 rounded-tl- [4px] rounded-bl-[4px] hover:bg-[#EEEEEE]" button-pagination=1) 
+                          i(class="fa-solid fa-angles-left")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage-1) 
+                          i(class="fa-solid fa-angle-left")
+                      - for(var i = 1; i <= totalPage; i++)
+                          button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] font-[600] hover:bg-[#EEEEEE]" button-pagination=i) #{i}
+                      if(currentPage < totalPage)
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] border-r-0 hover:bg-[#EEEEEE]" button-pagination=currentPage+1) 
+                          i(class="fa-solid fa-angle-right")
+                        button(class="py-[6px] px-[12px] text-[14px] text-[#706f6f] border-[1px] border-[#ddd] rounded-tr-[4px] rounded-br-[4px] hover:bg-[#EEEEEE]" button-pagination=totalPage) 
+                          i(class="fa-solid fa-angles-right")
+    //- End list

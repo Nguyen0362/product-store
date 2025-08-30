@@ -7,9 +7,14 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('express-flash');
 const methodOverride = require('method-override');
+const http = require("http");
+const { Server } = require("socket.io"); 
 
 const app = express();
 const port = process.env.PORT;
+
+const server = http.createServer(app);
+const io = new Server(server);
 
 const database = require('./config/database');
 database.connect();
@@ -32,9 +37,16 @@ app.use(methodOverride('_method'));
 
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
 
+global._io = io;
+const chatSocket = require("./sockets/chat.socket");
+chatSocket();
+
 const routeAdmin = require('./routes/admin/index.route');
+const routeClient = require('./routes/client/index.route');
+
+routeClient(app);
 routeAdmin(app);
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });

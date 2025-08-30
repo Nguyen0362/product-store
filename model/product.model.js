@@ -17,13 +17,15 @@ const productSchema = new mongoose.Schema({
     price: Number,
     discountPercentage: Number,
     quantity: Number,
-    thumbnail: String,
+    thumbnail: Array,
     position: Number,
     status: String,
     createdBy: String,
     createdAt: Date,
     updatedBy: String,
     updatedAt: Date,
+    deletedBy: String,
+    deletedAt: Date,
     deleted: {
       type: Boolean,
       default: false
