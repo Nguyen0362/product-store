@@ -153,6 +153,26 @@ body {
 
 /* End header */
 
+/* footer  */
+.footer .footer-shap{
+  animation: traataniX 3s ease-in infinite;
+}
+
+@keyframes traataniX{
+  0%{
+    transform: translateX(0px);
+  }
+
+  50%{
+    transform: translateX(-20px);
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+/* end footer  */
+
 /* slide-area */
 .slide-area .button:hover {
   background: black;

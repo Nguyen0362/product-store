@@ -221,7 +221,7 @@ var productBestSellerSwiper = new Swiper(".product-bestseller .bestSellerSwiper"
   loop: true,
   autoplay: {
     delay: 2000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   slidesPerView: 1,
   spaceBetween: 30,
@@ -230,16 +230,6 @@ var productBestSellerSwiper = new Swiper(".product-bestseller .bestSellerSwiper"
     prevEl: ".product-bestseller .bestSellerSwiper-button-prev",
   }
 });
-
-const listButtonSwiperBestseller = document.querySelectorAll(".product-bestseller .button-swiper");
-
-if (listButtonSwiperBestseller.length > 0) {
-  listButtonSwiperBestseller.forEach(button => {
-    button.addEventListener("click", function () {
-      productBestSellerSwiper.autoplay.stop();
-    });
-  })
-}
 // end product bestseller
 
 // review
@@ -247,7 +237,7 @@ var reviewSwiper = new Swiper(".review-area .reviewSwiper", {
   loop: true,
   autoplay: {
     delay: 2000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
   },
   slidesPerView: 1,
   breakpoints: {
@@ -269,17 +259,38 @@ var reviewSwiper = new Swiper(".review-area .reviewSwiper", {
     prevEl: ".reviewSwiper-button-prev",
   }
 });
-
-const listButtonSwiperReview = document.querySelectorAll(".review-area .button-swiper");
-
-if (listButtonSwiperReview.length > 0) {
-  listButtonSwiperReview.forEach(button => {
-    button.addEventListener("click", function () {
-      reviewSwiper.autoplay.stop();
-    });
-  })
-}
 // end review
+
+// gallery
+var gallerySwiper = new Swiper(".gallerySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: true,
+  },
+  spaceBetween: 10,
+  slidesPerView: 2,
+  breakpoints: {
+    576: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+    1200: {
+      slidesPerView: 6,
+      spaceBetween: 30,
+    }
+  },
+  navigation: {
+    nextEl: ".gallerySwiper-button-next",
+    prevEl: ".gallerySwiper-button-prev",
+  }
+});
+
+// end gallery
 
 const eventSwiper = document.querySelector(".mySwiper");
 

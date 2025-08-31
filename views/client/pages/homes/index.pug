@@ -496,6 +496,22 @@ block main
                   a(href="#" class="text-[16px] leading-[30px] font-[400] capitalize text-[#555555] underline transition-all duration-300 ease-in-out hover:text-primary") Đọc thêm  
   //-end blog area
 
+  //-gallery area
+  div(class="mb-[10px]")
+    div(class="w-full px-[12px]")
+      div(class="relative")
+        div(class="gallerySwiper-button-prev text-black absolute z-[2] left-[0] top-[50%] translate-y-[-50%] w-[40px] h-[100px] rounded-tr-[20px] rounded-br-[20px] bg-white flex justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+          i(class="fa-solid fa-arrow-left")
+        div(class="swiper gallerySwiper")
+          div(class="swiper-wrapper")
+            -for(let i = 0; i < 8; i++)  
+              a(href="/images/gallery-v2-img4.jpg" data-lightbox=`image-${i}` data-title="My caption" class="group swiper-slide relative")
+                img(src="/images/gallery-v2-img4.jpg", alt="", srcset="" class="min-w-[100%]") 
+                span(class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full h-full bg-[rgba(254,152,36,0.2)] text-[30px] text-white flex justify-center items-center transition-all duration-[0.4s] delay-[0.1s] ease-linear scale-0 group-hover:scale-[1]")
+                  img(src="/images/full-size.png", alt="", srcset="" class="w-[20px] h-[20px]")
+        div(class="gallerySwiper-button-next text-black absolute z-[2] right-0 top-[50%] translate-y-[-50%] w-[40px] h-[100px] rounded-tl-[20px] rounded-bl-[20px] bg-white flex justify-center items-center shadow-[1px_5px_15px_rgba(167,180,226,0.25)] transition-all duration-300 ease-in-out hover:text-white hover:bg-primary")
+            i(class="fa-solid fa-arrow-right")
+  //-end gallery area
   //- //- featured-area
   //- section(class="featured-area md:py-[60px] py-[40px]")
   //-   div(class="custom-container mx-auto")
